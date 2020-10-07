@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "perl",
+            "request": "launch",
+            "name": "Perl-Debug local",
+            "console": "integratedTerminal",
+            "program": "./script/render_app",
+            "exec": "perl",
+            "execArgs": ["-d:vscode"],
+            "root": "${workspaceRoot}/",
+            "inc": [],
+            "args": ["daemon", "-l", "http://[::]:3000 "],
+            "env": {},
+            "debugRaw": false,
+            "debugLog": false,
+            "stopOnEntry": true,
+            "sessions": "watch"
+        },
+        {
+            "type": "perl",
+            "request": "launch",
+            "name": "Perl-Debug remote",
+            "console": "remote",
+            "program": "${workspaceFolder}/${relativeFile}",
+            "root": "${workspaceRoot}/",
+            "stopOnEntry": true,
+            "port": 5000,
+            "sessions": "watch"
+        }
+    ]
