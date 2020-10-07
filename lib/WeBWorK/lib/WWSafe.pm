@@ -353,7 +353,7 @@ sub _clean_stash {
 
 sub reval {
     my ($obj, $expr, $strict) = @_;
-    die "Bad Safe object" unless $obj->isa('Safe');
+    die "Bad Safe object" unless $obj->isa('WWSafe');
 
     my $root = $obj->{Root};
 
