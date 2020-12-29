@@ -44,16 +44,18 @@ sub upload {
 
 	my $error;
 	# process upload
-	$error = 'No file provided' unless my $upload = $c->req->param('file');
-	$error = 'No path provided' unless my $path = $c->req->param('path');
-	$error = 'Bad path provided' unless $path =~ m!^private/(?:[\s]*).pg$!;
+	$error = 'No file provided' unless my $upload = $c->param('file');
+	return $c->render(text=> $error, status=>400) if $error;
+	$error = 'No path provided' unless my $path = $c->param('path');
+	return $c->render(text=> $error, status=>400) if $error;
+	$error = 'Bad path provided' unless $path =~ m!^private/\S+!;
+	return $c->render(text=> $error, status=>400) if $error;
 
 	# static images must share a folder with an existing pg file
 	my $mf_path = Mojo::File->new($path);
 	$error = 'No orphaned uploads' unless (-e $mf_path->dirname and -d $mf_path->dirname and -w $mf_path->dirname);
+	return $c->render(text=> $error, status=>400) if $error;
 
-	$c->render(text=>$error, status=>400) if $error;
-	
 	$upload->move_to($path);
 	return $c->render(text=>'File successfully uploaded', status=>200);
 }
