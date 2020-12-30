@@ -2,7 +2,7 @@
 
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/rederly/renderer?style=plastic)
 ![License](https://img.shields.io/github/license/rederly/renderer?style=plastic)
-
+![Lines of code](https://img.shields.io/tokei/lines/github/rederly/frontend?style=plastic)
 
 This is a PG Renderer derived from the WeBWorK2 codebase
 * https://github.com/openwebwork/WeBWorK2
