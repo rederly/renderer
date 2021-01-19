@@ -52,7 +52,6 @@ $problemHeadText
           <input type="hidden" name="answersSubmitted" value="1">
           <input type="hidden" name="sourceFilePath" value = "$sourceFilePath">
           <input type="hidden" name="problemSource" value="$encoded_source">
-          <input type="hidden" name="problemSeed" value = "$problemSeed">
           <input type="hidden" name="language" value="$formLanguage">
           <input type="hidden" name="showSummary" value="$showSummary">
           <p>
